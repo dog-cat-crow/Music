@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .album-cover {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .play-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="your-album-cover.jpg" alt="Album Cover" class="album-cover">
+    
+    <button class="play-btn" id="playPauseBtn">►</button>
+
+    <audio id="audioPlayer">
+        <source src="your-audio-file.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseBtn.textContent = '❚❚'; // Change to pause icon
+            } else {
+                audioPlayer.pause();
+                playPauseBtn.textContent = '►'; // Change to play icon
+            }
+        });
+    </script>
+
+</body>
+</html>
