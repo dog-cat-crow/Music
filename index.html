@@ -27,6 +27,12 @@
             max-width: 85%; /* Set image to 85% of its size */
             height: auto;
         }
+        #buttonIcon {
+            width: 50px; /* Set width */
+            height: 50px; /* Set height */
+            border-radius: 50%; /* Make icons round */
+            object-fit: cover; /* Cover the button */
+        }
     </style>
 </head>
 <body>
@@ -36,12 +42,12 @@
             <img src="faded.jpg" alt="Faded Image"> <!-- Updated image -->
             <br>
             <button id="playPauseButton">
-                <img id="buttonIcon" src="play.jpg" alt="Play" style="max-width: 50px; height: auto;">
+                <img id="buttonIcon" src="play.jpg" alt="Play">
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
         </header>
         <main>
-            <!-- Main content can go here -->
+            <!-- Additional content can go here -->
         </main>
         <footer>
             <!-- Footer content can go here -->
