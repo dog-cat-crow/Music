@@ -16,7 +16,7 @@
             padding: 20px;
             text-align: center; /* Center content */
         }
-        #playPauseButton, #webhookButton {
+        #playPauseButton {
             background: none;
             border: none;
             cursor: pointer;
@@ -27,13 +27,18 @@
             max-width: 85%; /* Set image to 85% of its size */
             height: auto;
         }
-        #buttonIcon, #webhookIcon {
+        #buttonIcon {
             max-width: 50px; /* Keep original width */
             height: auto; /* Maintain aspect ratio */
         }
         .infoText {
             margin-top: 35px; /* Distance from icons */
             font-family: Verdana, sans-serif; /* Set font to Verdana */
+        }
+        .likeText {
+            margin-top: 40px; /* Distance from the previous text */
+            font-family: Arial, sans-serif; /* Set font to Arial */
+            font-weight: bold; /* Make text bold */
         }
     </style>
 </head>
@@ -46,11 +51,9 @@
             <button id="playPauseButton">
                 <img id="buttonIcon" src="play.jpg" alt="Play">
             </button>
-            <button id="webhookButton">
-                <img id="webhookIcon" src="play.jpg" alt="Trigger Webhook">
-            </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
             <div class="infoText">Use Earphones/Headphones for better feeling</div> <!-- Updated text -->
+            <div class="likeText">Did you Like It?</div> <!-- New text button -->
         </header>
         <main>
             <!-- Additional content can go here -->
@@ -64,9 +67,7 @@
         const audio = document.getElementById('audio');
         const playPauseButton = document.getElementById('playPauseButton');
         const buttonIcon = document.getElementById('buttonIcon');
-        const webhookButton = document.getElementById('webhookButton');
 
-        // Play/Pause button functionality
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
@@ -76,20 +77,6 @@
                 buttonIcon.src = 'play.jpg'; // Change to play icon
             }
         });
-
-        // Webhook button functionality
-        webhookButton.addEventListener('click', () => {
-            fetch('https://hooks.zapier.com/hooks/catch/20191053/2d9j6i9/', {
-                method: 'POST'
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Webhook triggered successfully', data);
-            })
-            .catch(error => {
-                console.error('Error triggering webhook:', error);
-            });
-        });
     </script>
 </body>
-    </html>
+</html>
