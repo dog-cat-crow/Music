@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faded Player</title>
+    <title>Faded</title>
     <style>
         body {
             background-color: #cce6dd;
@@ -13,42 +13,38 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-        }
-        h1 {
-            margin-bottom: 20px;
+            text-align: center;
         }
         img {
-            width: 300px; /* Adjust size as needed */
-            margin: 10px 0;
+            max-width: 100%;
+            height: auto;
         }
-        button {
-            background: none;
-            border: none;
+        .play-pause {
             cursor: pointer;
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
 <body>
     <h1>Faded</h1>
-    <img src="faded.jpg" alt="Faded Cover">
-    <audio id="audio" src="faded.mp3" preload="auto"></audio>
-    <div>
-        <button id="playBtn"><img src="play.jpg" alt="Play"></button>
-        <button id="pauseBtn"><img src="pause.jpg" alt="Pause"></button>
-    </div>
+    <img src="faded.jpg" alt="Faded Album Cover">
+    <img id="playPauseIcon" class="play-pause" src="play.jpg" alt="Play/Pause" onclick="togglePlayPause()">
+    <audio id="audio" src="faded.mp3"></audio>
 
     <script>
         const audio = document.getElementById('audio');
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
 
-        playBtn.addEventListener('click', () => {
-            audio.play();
-        });
-
-        pauseBtn.addEventListener('click', () => {
-            audio.pause();
-        });
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseIcon.src = 'pause.jpg';
+            } else {
+                audio.pause();
+                playPauseIcon.src = 'play.jpg';
+            }
+        }
     </script>
 </body>
 </html>
