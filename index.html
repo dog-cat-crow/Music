@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=375, height=812, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>My Page</title>
+    <title>Faded</title>
     <style>
         body {
             background-color: #cce6dd;
@@ -11,15 +11,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding-top: 100px; /* Space from the top */
+            padding-top: 100px;
             text-align: center;
         }
         h1 {
             margin: 0;
         }
         .album-cover {
-            width: 250px; /* Adjust size as needed */
-            height: 250px; /* Square cover */
+            width: 250px;
+            height: 250px;
             margin-top: 20px;
         }
         .player-button {
@@ -36,7 +36,7 @@
         <img src="faded.jpg" alt="Album Cover" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
     <audio id="audio">
-        <source src="Faded.mp3" type="audio/mpeg">
+        <source src="faded.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <button class="player-button" id="play-pause-btn">
@@ -50,7 +50,9 @@
 
         playPauseBtn.addEventListener('click', () => {
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(error => {
+                    console.error("Error playing audio:", error);
+                });
                 playPauseIcon.src = 'pause.jpg';
             } else {
                 audio.pause();
