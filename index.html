@@ -61,7 +61,7 @@
             <img src="faded.jpg" alt="Faded Image"> <!-- Updated image -->
             <br>
             <button id="playPauseButton">
-                <img id="buttonIcon" src="play.jpg" alt="Play">
+                <img id="buttonIcon" src="play.png" alt="Play">
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div> <!-- Updated text with line break -->
@@ -69,8 +69,8 @@
 
             <!-- New Icons Section -->
             <div class="icons">
-                <img src="yes.jpg" alt="Yes"> <!-- Left icon -->
-                <img src="no.jpg" alt="No"> <!-- Right icon -->
+                <img src="yes.png" alt="Yes"> <!-- Left icon -->
+                <img src="no.png" alt="No"> <!-- Right icon -->
             </div>
         </header>
         <main>
@@ -89,12 +89,12 @@
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                buttonIcon.src = 'pause.jpg'; // Change to pause icon
+                buttonIcon.src = 'pause.png'; // Change to pause icon
             } else {
                 audio.pause();
-                buttonIcon.src = 'play.jpg'; // Change to play icon
+                buttonIcon.src = 'play.png'; // Change to play icon
             }
         });
     </script>
 </body>
-        </html>
+</html>
