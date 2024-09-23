@@ -41,6 +41,17 @@
             font-weight: bold; /* Make text bold */
             font-size: 2em; /* Doubled the size of the text */
         }
+        .icons {
+            margin-top: 25px; /* 25px below the "Did you Like It?" text */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px; /* Adds padding to position the icons correctly */
+        }
+        .icons img {
+            width: 50px; /* Adjust the size of the icons */
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -55,6 +66,12 @@
             <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div> <!-- Updated text with line break -->
             <div class="likeText">Did you Like It?</div> <!-- New text button -->
+
+            <!-- New Icons Section -->
+            <div class="icons">
+                <img src="yes.jpg" alt="Yes"> <!-- Left icon -->
+                <img src="no.jpg" alt="No"> <!-- Right icon -->
+            </div>
         </header>
         <main>
             <!-- Additional content can go here -->
@@ -80,4 +97,4 @@
         });
     </script>
 </body>
-</html>
+        </html>
