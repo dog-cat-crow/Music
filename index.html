@@ -28,10 +28,12 @@
             height: auto;
         }
         #buttonIcon {
-            width: 50px; /* Set width */
-            height: 50px; /* Set height */
-            border-radius: 50%; /* Make icons round */
-            object-fit: cover; /* Cover the button */
+            max-width: 50px; /* Keep original width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .infoText {
+            margin-top: 35px; /* Distance from icons */
+            font-family: 'Comic Sans MS', cursive; /* Comic Sans font */
         }
     </style>
 </head>
@@ -45,6 +47,7 @@
                 <img id="buttonIcon" src="play.jpg" alt="Play">
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
+            <div class="infoText">Use Earphones/Headphones if possible</div> <!-- Added text -->
         </header>
         <main>
             <!-- Additional content can go here -->
