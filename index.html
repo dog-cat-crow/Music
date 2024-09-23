@@ -15,13 +15,24 @@
             padding: 20px;
             text-align: center; /* Center content */
         }
+        #playPauseButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Faded</h1>
-            <img src="faded.jpg" alt="Faded Image" style="max-width: 100%; height: auto;"> <!-- Added image -->
+            <img src="faded.jpg" alt="Faded Image" style="max-width: 100%; height: auto;"> <!-- Updated image -->
+            <br>
+            <button id="playPauseButton">
+                <img id="buttonIcon" src="play.jpg" alt="Play" style="max-width: 50px; height: auto;">
+            </button>
+            <audio id="audio" src="faded.mp3" preload="auto"></audio> <!-- Audio element -->
         </header>
         <main>
             <!-- Main content can go here -->
@@ -30,5 +41,21 @@
             <!-- Footer content can go here -->
         </footer>
     </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const button = document.getElementById('playPauseButton');
+        const buttonIcon = document.getElementById('buttonIcon');
+
+        button.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                buttonIcon.src = 'pause.jpg'; // Change to pause icon
+            } else {
+                audio.pause();
+                buttonIcon.src = 'play.jpg'; // Change to play icon
+            }
+        });
+    </script>
 </body>
 </html>
