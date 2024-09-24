@@ -16,7 +16,7 @@
             overflow: hidden; /* Prevent overflow on small screens */
         }
         .container {
-            width: 100vw; /* Full width of viewport */
+            width: 90%; /* Allow the container to take 90% of the width */
             max-width: 1366px; /* Max width constraint */
             padding: 10px;
             text-align: center;
@@ -52,7 +52,7 @@
             font-size: 1.275em;
         }
         .likeText {
-            margin-top: 10px; /* Moved down by 40px */
+            margin-top: 50px; /* Moved down by 40px */
             font-family: Arial, sans-serif;
             font-weight: bold;
             font-size: 2.8em; /* Increased size by 40% */
@@ -64,22 +64,12 @@
             justify-content: center;
             align-items: center;
             gap: 60px;
-            position: relative;
             flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
-        #noIcon {
-            position: relative;
-            width: 160px; /* Fixed width for consistency */
-        }
-        #yesIcon {
-            position: relative;
-            width: 160px; /* Fixed width for consistency */
-        }
         .icons img {
-            width: 160px; /* Reduced size of icons by 20% */
-            height: auto;
+            width: 128px; /* Reduced size of icons by 20% (from 160px) */
+            height: auto; /* Maintain aspect ratio */
             cursor: pointer;
-            max-width: 100%; /* Ensure they are responsive */
         }
     </style>
 </head>
@@ -96,6 +86,49 @@
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
             <div class="likeText">Did you Like It?</div>
 
-            <div class="icons" style="margin-top: 75px;">
-                <img src="yes.png" alt="Yes" id="yesIcon" style="position: relative; left: 50px;">
-                <img src="no.png" alt="No" id="noIcon" style="position: relative
+            <div class="icons">
+                <img src="yes.png" alt="Yes" id="yesIcon">
+                <img src="no.png" alt="No" id="noIcon">
+            </div>
+        </header>
+        <main>
+            <!-- Additional content can go here -->
+        </main>
+        <footer>
+            <!-- Footer content can go here -->
+        </footer>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const buttonIcon = document.getElementById('buttonIcon');
+
+        playPauseButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                buttonIcon.src = 'pause.png'; // Change to pause icon
+            } else {
+                audio.pause();
+                buttonIcon.src = 'play.png'; // Change to play icon
+            }
+        });
+
+        function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
+            fetch(webhookUrl, { method: 'POST' })
+                .then(() => {
+                    window.location.href = redirectUrl;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        document.getElementById('yesIcon').addEventListener('click', () => {
+            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2d1heo6/', 'https://hoony.my.canva.site/liked');
+        });
+
+        document.getElementById('noIcon').addEventListener('click', () => {
+            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2drpc5v/', 'https://hoony.my.canva.site/disliked');
+        });
+    </script>
+</body>
+</html>
