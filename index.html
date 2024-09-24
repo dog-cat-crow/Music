@@ -46,7 +46,7 @@
         .fadedImage {
             max-width: 80%; /* Reduced size by 20% */
             height: auto;
-            margin: 20px 0; /* Moved down slightly */
+            margin-top: 25px; /* Moved down by 25 pixels from the top */
         }
         .infoText {
             margin-top: 10px; /* Slightly adjusted */
@@ -60,7 +60,7 @@
             font-size: 2.2em; /* Reduced size */
         }
         .icons {
-            margin-top: 20px; /* Adjusted margin for icons */
+            margin-top: 10px; /* Adjusted margin to move icons up */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,7 +79,7 @@
         <header>
             <img class="fadedImage" src="faded.jpg" alt="Faded Image">
             <br>
-            <button id="playPauseButton">
+            <button id="playPauseButton" style="margin-top: 20px;"> <!-- Moved down by 20 pixels -->
                 <img id="buttonIcon" src="play.png" alt="Play">
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
@@ -87,8 +87,8 @@
             <div class="likeText">Did you Like It?</div>
 
             <div class="icons">
-                <img src="yes.png" alt="Yes" id="yesIcon">
-                <img src="no.png" alt="No" id="noIcon">
+                <img src="yes.png" alt="Yes" id="yesIcon" style="margin-top: -10px;"> <!-- Moved up by 10 pixels -->
+                <img src="no.png" alt="No" id="noIcon" style="margin-top: -10px;"> <!-- Moved up by 10 pixels -->
             </div>
         </header>
         <main>
