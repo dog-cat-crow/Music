@@ -21,7 +21,11 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            margin-top: 10px; /* Reduced margin to move button up */
+            margin-top: 10px;
+            outline: none; /* Remove default blue outline */
+        }
+        #playPauseButton:focus {
+            outline: none; /* Ensure no outline on focus */
         }
         img {
             max-width: 85%; /* Set image to 85% of its size */
