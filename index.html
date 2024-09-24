@@ -18,17 +18,17 @@
         .container {
             width: 90%; /* Allow the container to take 90% of the width */
             max-width: 1366px; /* Max width constraint */
-            padding: 10px;
+            padding: 20px; /* Added padding for better spacing */
             text-align: center;
             box-sizing: border-box; /* Include padding in width */
-            margin-top: -40px; /* Move everything up by 40 pixels */
+            margin-top: -30px; /* Adjusted to fit layout */
         }
         #playPauseButton {
             background: none;
             border: none;
             cursor: pointer;
             padding: 0;
-            margin-top: 40px; /* Moved down by 70 pixels from the original position */
+            margin: 20px 0; /* Adjusted margins for better spacing */
             outline: none;
             touch-action: manipulation;
         }
@@ -40,39 +40,35 @@
             height: auto; /* Maintain aspect ratio */
         }
         #buttonIcon {
-            max-width: 150px; /* Increased size by 3x */
+            max-width: 150px; /* Increased size */
             height: auto;
         }
         .fadedImage {
             max-width: 80%; /* Reduced size by 20% */
             height: auto;
-            margin-top: 50px; /* Moved down by 50 pixels */
+            margin: 20px 0; /* Moved down slightly */
         }
         .infoText {
-            margin-top: -5px;
+            margin-top: 10px; /* Slightly adjusted */
             font-family: Verdana, sans-serif;
-            font-size: 1.275em;
+            font-size: 1.1em; /* Reduced size for better visibility */
         }
         .likeText {
-            margin-top: 50px; /* Moved down by 40px */
+            margin: 20px 0; /* Adjusted for better layout */
             font-family: Arial, sans-serif;
             font-weight: bold;
-            font-size: 2.8em; /* Increased size by 40% */
-            margin-bottom: 30px;
-        }
-        .likeTextReduced {
-            font-size: 2.24em; /* Reduced size by 20% from 2.8em */
+            font-size: 2.2em; /* Reduced size */
         }
         .icons {
-            margin-top: 75px; /* Adjusted margin for icons */
+            margin-top: 20px; /* Adjusted margin for icons */
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 60px;
+            gap: 40px; /* Reduced gap between icons */
             flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
         .icons img {
-            width: 128px; /* Reduced size of icons by 20% (from 160px) */
+            width: 100px; /* Adjusted size for icons */
             height: auto; /* Maintain aspect ratio */
             cursor: pointer;
         }
@@ -88,7 +84,7 @@
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
-            <div class="likeText likeTextReduced">Did you Like It?</div> <!-- Added class to reduce size -->
+            <div class="likeText">Did you Like It?</div>
 
             <div class="icons">
                 <img src="yes.png" alt="Yes" id="yesIcon">
