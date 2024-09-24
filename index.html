@@ -9,12 +9,17 @@
             margin: 0;
             font-family: Arial, sans-serif; /* Set font to Arial */
             background-color: #9bddd1; /* Set background color */
+            height: 100vh; /* Full height of viewport */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
         }
         .container {
-            max-width: 1366px;
-            margin: auto;
-            padding: 10px; /* Reduced padding to move content up */
+            max-width: 100vw; /* Full width of viewport */
+            max-height: 100vh; /* Full height of viewport */
+            padding: 10px; /* Padding for content */
             text-align: center; /* Center content */
+            overflow: hidden; /* Prevent overflow */
         }
         #playPauseButton {
             background: none;
@@ -29,25 +34,26 @@
             outline: none; /* Ensure no outline on focus */
         }
         img {
-            max-width: 85%; /* Set image to 85% of its size */
-            height: auto;
+            max-width: 100%; /* Full width of parent */
+            height: auto; /* Maintain aspect ratio */
         }
         #buttonIcon {
             max-width: 150px; /* Increased size by 3x */
             height: auto; /* Maintain aspect ratio */
         }
         .infoText {
-            margin-top: 45px; /* Moved up by 20px (from 65px to 45px) */
+            margin-top: 45px; /* Moved up by 20px */
             font-family: Verdana, sans-serif; /* Set font to Verdana */
+            font-size: 2vw; /* Responsive font size */
         }
         .likeText {
-            margin-top: 10px; /* Moved up by 20px (from 30px to 10px) */
+            margin-top: 10px; /* Moved up by 20px */
             font-family: Arial, sans-serif; /* Set font to Arial */
             font-weight: bold; /* Make text bold */
-            font-size: 2.8em; /* Increased size by 40% */
+            font-size: 2.8vw; /* Responsive font size */
         }
         .icons {
-            margin-top: 5px; /* Moved up by 20px (from 25px to 5px) */
+            margin-top: 5px; /* Moved up by 20px */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,8 +69,8 @@
             position: relative; /* Set position to relative */
         }
         .icons img {
-            width: 200px; /* Increased size by 4x (50px * 4) */
-            height: auto;
+            width: 20vw; /* Responsive width */
+            height: auto; /* Maintain aspect ratio */
             cursor: pointer;
         }
     </style>
