@@ -9,17 +9,16 @@
             margin: 0;
             font-family: Arial, sans-serif; /* Set font to Arial */
             background-color: #9bddd1; /* Set background color */
-            height: 100vh; /* Full height of viewport */
             display: flex; /* Use flexbox for centering */
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure body takes at least full height */
         }
         .container {
-            max-width: 100vw; /* Full width of viewport */
-            max-height: 100vh; /* Full height of viewport */
+            width: 100vw; /* Full width of viewport */
+            max-width: 1366px; /* Max width constraint */
             padding: 10px; /* Padding for content */
             text-align: center; /* Center content */
-            overflow: hidden; /* Prevent overflow */
         }
         #playPauseButton {
             background: none;
@@ -42,7 +41,7 @@
             height: auto; /* Maintain aspect ratio */
         }
         .infoText {
-            margin-top: 45px; /* Moved up by 40px (previously 85px) */
+            margin-top: 45px; /* Moved up by 40px */
             font-family: Verdana, sans-serif; /* Set font to Verdana */
             font-size: 1.5em; /* Fixed size */
         }
@@ -90,8 +89,8 @@
 
             <!-- New Icons Section -->
             <div class="icons">
-                <img src="yes.png" alt="Yes" id="yesIcon"> <!-- Left icon -->
-                <img src="no.png" alt="No" id="noIcon"> <!-- Right icon -->
+                <img src="yes.png" alt="Yes" id="yesIcon"> <!-- Yes icon -->
+                <img src="no.png" alt="No" id="noIcon"> <!-- No icon -->
             </div>
         </header>
         <main>
