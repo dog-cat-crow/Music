@@ -23,6 +23,7 @@
             padding: 0;
             margin-top: 10px;
             outline: none; /* Remove default blue outline */
+            touch-action: manipulation; /* Prevent blue highlight on touch devices */
         }
         #playPauseButton:focus {
             outline: none; /* Ensure no outline on focus */
@@ -58,7 +59,7 @@
             position: relative; /* Set position to relative */
         }
         #yesIcon {
-            left: 30px; /* Move yes icon right by 30px */
+            left: 50px; /* Move yes icon right by 50px (30px + 20px) */
             position: relative; /* Set position to relative */
         }
         .icons img {
