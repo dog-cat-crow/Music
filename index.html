@@ -13,6 +13,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            position: relative; /* Set position for absolute child */
         }
         .container {
             width: 90%;
@@ -20,7 +21,7 @@
             padding: 10px;
             text-align: center;
             box-sizing: border-box;
-            margin-top: 100px; /* Move everything down by 40 pixels (previously 10px + 40px) */
+            margin-top: 10px; /* Keep original margin */
         }
         #playPauseButton {
             background: none;
@@ -59,17 +60,15 @@
             margin-bottom: 30px;
         }
         .icons {
-            margin-top: 3px; /* Distance to the above text */
-            display: flex;
-            justify-content: center; /* Center the icons horizontally */
-            align-items: center;
-            gap: 20px; /* Adjust space between icons */
-        }
-        #yesIcon {
-            margin-left: 4px; /* Move the Yes icon 4 pixels to the right */
+            position: absolute; /* Position icons at the bottom */
+            bottom: 40px; /* 40px from bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center adjustment */
+            display: flex; /* Use flexbox for alignment */
+            gap: 30px; /* 30px spacing between icons */
         }
         .icons img {
-            width: 128px;
+            width: 128px; /* Size of the icons */
             height: auto;
             cursor: pointer;
         }
@@ -86,11 +85,6 @@
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
             <div class="likeText">Did you Like It?</div>
-
-            <div class="icons">
-                <img src="yes.png" alt="Yes" id="yesIcon">
-                <img src="no.png" alt="No" id="noIcon">
-            </div>
         </header>
         <main>
             <!-- Additional content can go here -->
@@ -98,6 +92,11 @@
         <footer>
             <!-- Footer content can go here -->
         </footer>
+        
+        <div class="icons">
+            <img src="yes.png" alt="Yes" id="yesIcon">
+            <img src="no.png" alt="No" id="noIcon">
+        </div>
     </div>
 
     <script>
