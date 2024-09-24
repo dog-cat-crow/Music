@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
     <title>Your Website Title</title>
-    <link href="https://fonts.googleapis.com/css2?family=Garret&family=DM+Sans&display=swap" rel="stylesheet"> <!-- Embed Google Fonts -->
     <style>
+        @font-face {
+            font-family: 'Copperplate Gothic';
+            src: url('fonts/Copperplate-Gothic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('fonts/Dm-Sans.woff') format('woff');
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -21,7 +30,7 @@
             padding: 10px;
             text-align: center;
             box-sizing: border-box;
-            margin-top: 40px; /* Move everything down by 40 pixels (previously 10px + 40px) */
+            margin-top: 40px; /* Move everything down by 40 pixels */
         }
         #playPauseButton {
             background: none;
@@ -49,7 +58,7 @@
         }
         .infoText {
             margin-top: 5px;
-            font-family: 'Garret', sans-serif; /* Use Garret font */
+            font-family: 'Copperplate Gothic', serif; /* Use Copperplate Gothic font */
             font-size: 1.275em;
         }
         .likeText {
@@ -58,6 +67,10 @@
             font-weight: bold;
             font-size: 2.24em;
             margin-bottom: 30px;
+            line-height: 1.2; /* Adjust line height for spacing */
+        }
+        .likeText span {
+            display: block; /* Make "Did you" and "Like It?" stack */
         }
         .icons {
             margin-top: 8px; /* Distance to the above text */
@@ -95,7 +108,10 @@
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
-            <div class="likeText">Did you Like It?</div>
+            <div class="likeText">
+                <span>Did you</span>
+                <span>Like It?</span>
+            </div>
 
             <div class="icons">
                 <img src="yes.png" alt="Yes" id="yesIcon">
@@ -142,4 +158,4 @@
         });
     </script>
 </body>
-        </html>
+</html>
