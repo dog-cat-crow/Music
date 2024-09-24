@@ -13,69 +13,89 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
-            flex-direction: column;
-            text-align: center;
+            overflow: hidden; /* Prevent overflow on small screens */
         }
         .container {
-            width: 100%; /* Make the container full width */
-            max-width: 800px; /* Limit the maximum width */
-            padding: 20px;
-            box-sizing: border-box;
+            width: 90%; /* Allow the container to take 90% of the width */
+            max-width: 1366px; /* Max width constraint */
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box; /* Include padding in width */
         }
         #playPauseButton {
             background: none;
             border: none;
             cursor: pointer;
-            margin: 20px 0;
+            padding: 0;
+            margin-top: 10px;
+            outline: none;
+            touch-action: manipulation;
+        }
+        #playPauseButton:focus {
+            outline: none;
         }
         img {
-            max-width: 100%;
+            max-width: 100%; /* Responsive images */
+            height: auto; /* Maintain aspect ratio */
+        }
+        #buttonIcon {
+            max-width: 150px; /* Increased size by 3x */
             height: auto;
         }
         .fadedImage {
-            max-width: 100%; /* Ensure the image is responsive */
-            margin-top: 25px;
-        }
-        .belowButton {
-            margin-top: 30px; /* Move this container down by 30 pixels */
+            max-width: 80%; /* Reduced size by 20% */
+            height: auto;
         }
         .infoText {
+            margin-top: -5px;
             font-family: Verdana, sans-serif;
-            font-size: 1.1em;
+            font-size: 1.275em;
         }
         .likeText {
-            margin: 20px 0;
-            font-size: 2.2em;
+            margin-top: 50px; /* Moved down by 40px */
+            font-family: Arial, sans-serif;
             font-weight: bold;
+            font-size: 2.8em; /* Increased size by 40% */
+            margin-bottom: 30px;
         }
         .icons {
+            margin-top: 75px; /* Adjusted margin for icons */
             display: flex;
             justify-content: center;
-            gap: 20px; /* Reduce gap for smaller screens */
-            flex-wrap: wrap; /* Allow icons to wrap to the next line */
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
         .icons img {
-            width: 80px; /* Make icon size responsive */
+            width: 128px; /* Reduced size of icons by 20% (from 160px) */
+            height: auto; /* Maintain aspect ratio */
             cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img class="fadedImage" src="faded.jpg" alt="Faded Image">
-        <button id="playPauseButton">
-            <img id="buttonIcon" src="play.png" alt="Play">
-        </button>
-        <div class="belowButton">
+        <header>
+            <img class="fadedImage" src="faded.jpg" alt="Faded Image">
+            <br>
+            <button id="playPauseButton">
+                <img id="buttonIcon" src="play.png" alt="Play">
+            </button>
+            <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
             <div class="likeText">Did you Like It?</div>
+
             <div class="icons">
                 <img src="yes.png" alt="Yes" id="yesIcon">
                 <img src="no.png" alt="No" id="noIcon">
             </div>
-        </div>
-        <audio id="audio" src="faded.mp3" preload="auto"></audio>
+        </header>
+        <main>
+            <!-- Additional content can go here -->
+        </main>
+        <footer>
+            <!-- Footer content can go here -->
+        </footer>
     </div>
 
     <script>
@@ -86,16 +106,18 @@
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                buttonIcon.src = 'pause.png';
+                buttonIcon.src = 'pause.png'; // Change to pause icon
             } else {
                 audio.pause();
-                buttonIcon.src = 'play.png';
+                buttonIcon.src = 'play.png'; // Change to play icon
             }
         });
 
         function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
             fetch(webhookUrl, { method: 'POST' })
-                .then(() => window.location.href = redirectUrl)
+                .then(() => {
+                    window.location.href = redirectUrl;
+                })
                 .catch(error => console.error('Error:', error));
         }
 
