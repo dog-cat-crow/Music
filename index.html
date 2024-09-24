@@ -28,7 +28,7 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            margin-top: -30px; /* Adjusted margin for the button */
+            margin-top: 40px; /* Moved down by 70 pixels from the original position */
             outline: none;
             touch-action: manipulation;
         }
@@ -46,6 +46,7 @@
         .fadedImage {
             max-width: 80%; /* Reduced size by 20% */
             height: auto;
+            margin-top: 50px; /* Moved down by 50 pixels */
         }
         .infoText {
             margin-top: -5px;
@@ -58,6 +59,9 @@
             font-weight: bold;
             font-size: 2.8em; /* Increased size by 40% */
             margin-bottom: 30px;
+        }
+        .likeTextReduced {
+            font-size: 2.24em; /* Reduced size by 20% from 2.8em */
         }
         .icons {
             margin-top: 75px; /* Adjusted margin for icons */
@@ -84,7 +88,7 @@
             </button>
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
-            <div class="likeText">Did you Like It?</div>
+            <div class="likeText likeTextReduced">Did you Like It?</div> <!-- Added class to reduce size -->
 
             <div class="icons">
                 <img src="yes.png" alt="Yes" id="yesIcon">
