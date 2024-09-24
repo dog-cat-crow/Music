@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            position: relative; /* Set position for absolute child */
+            position: relative; /* Set position for absolute child elements */
         }
         .container {
             width: 90%;
@@ -62,10 +62,10 @@
         .icons {
             position: absolute; /* Position icons at the bottom */
             bottom: 40px; /* 40px from bottom */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Center adjustment */
             display: flex; /* Use flexbox for alignment */
-            gap: 30px; /* 30px spacing between icons */
+            width: 100%; /* Full width for positioning */
+            justify-content: space-between; /* Space between Yes and No */
+            padding: 0 30px; /* Padding to keep 30px from sides */
         }
         .icons img {
             width: 128px; /* Size of the icons */
@@ -94,8 +94,8 @@
         </footer>
         
         <div class="icons">
-            <img src="yes.png" alt="Yes" id="yesIcon">
-            <img src="no.png" alt="No" id="noIcon">
+            <img src="yes.png" alt="Yes" id="yesIcon"> <!-- Positioned 30px from left -->
+            <img src="no.png" alt="No" id="noIcon"> <!-- Positioned 30px from right -->
         </div>
     </div>
 
