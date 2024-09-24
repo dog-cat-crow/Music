@@ -51,6 +51,7 @@
         .icons img {
             width: 50px; /* Adjust the size of the icons */
             height: auto;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -69,8 +70,8 @@
 
             <!-- New Icons Section -->
             <div class="icons">
-                <img src="yes.png" alt="Yes"> <!-- Left icon -->
-                <img src="no.png" alt="No"> <!-- Right icon -->
+                <img src="yes.png" alt="Yes" id="yesIcon"> <!-- Left icon -->
+                <img src="no.png" alt="No" id="noIcon"> <!-- Right icon -->
             </div>
         </header>
         <main>
@@ -94,6 +95,26 @@
                 audio.pause();
                 buttonIcon.src = 'play.png'; // Change to play icon
             }
+        });
+
+        // Function to open a webhook in the background and redirect
+        function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
+            // Open the webhook URL in the background
+            fetch(webhookUrl, { method: 'POST' })
+                .then(() => {
+                    // After the webhook is triggered, redirect to the provided URL
+                    window.location.href = redirectUrl;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Event listeners for Yes and No icons
+        document.getElementById('yesIcon').addEventListener('click', () => {
+            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2d1heo6/', 'https://hoony.my.canva.site/liked');
+        });
+
+        document.getElementById('noIcon').addEventListener('click', () => {
+            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2drpc5v/', 'https://hoony.my.canva.site/disliked');
         });
     </script>
 </body>
