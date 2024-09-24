@@ -13,7 +13,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            position: relative; /* Set position for absolute child elements */
         }
         .container {
             width: 90%;
@@ -21,7 +20,7 @@
             padding: 10px;
             text-align: center;
             box-sizing: border-box;
-            margin-top: 10px; /* Keep original margin */
+            margin-top: 50px; /* Move everything down by 40 pixels (previously 10px + 40px) */
         }
         #playPauseButton {
             background: none;
@@ -60,15 +59,17 @@
             margin-bottom: 30px;
         }
         .icons {
-            position: absolute; /* Position icons at the bottom */
-            bottom: 40px; /* 40px from bottom */
-            display: flex; /* Use flexbox for alignment */
-            width: 100%; /* Full width for positioning */
-            justify-content: space-between; /* Space between Yes and No */
-            padding: 0 30px; /* Padding to keep 30px from sides */
+            margin-top: 8px; /* Distance to the above text */
+            display: flex;
+            justify-content: center; /* Center the icons horizontally */
+            align-items: center;
+            gap: 20px; /* Adjust space between icons */
+        }
+        #yesIcon {
+            margin-left: 4px; /* Move the Yes icon 4 pixels to the right */
         }
         .icons img {
-            width: 128px; /* Size of the icons */
+            width: 128px;
             height: auto;
             cursor: pointer;
         }
@@ -85,6 +86,11 @@
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
             <div class="likeText">Did you Like It?</div>
+
+            <div class="icons">
+                <img src="yes.png" alt="Yes" id="yesIcon">
+                <img src="no.png" alt="No" id="noIcon">
+            </div>
         </header>
         <main>
             <!-- Additional content can go here -->
@@ -92,11 +98,6 @@
         <footer>
             <!-- Footer content can go here -->
         </footer>
-        
-        <div class="icons">
-            <img src="yes.png" alt="Yes" id="yesIcon"> <!-- Positioned 30px from left -->
-            <img src="no.png" alt="No" id="noIcon"> <!-- Positioned 30px from right -->
-        </div>
     </div>
 
     <script>
