@@ -40,6 +40,10 @@
             max-width: 150px; /* Increased size by 3x */
             height: auto; /* Maintain aspect ratio */
         }
+        .fadedImage {
+            max-width: 80%; /* Reduced size by 20% (from 100%) */
+            height: auto; /* Maintain aspect ratio */
+        }
         .infoText {
             margin-top: 35px; /* Moved up by 50px (previously 45px) */
             font-family: Verdana, sans-serif; /* Set font to Verdana */
@@ -78,7 +82,7 @@
     <div class="container">
         <header>
             <h1>Faded</h1>
-            <img src="faded.jpg" alt="Faded Image"> <!-- Updated image -->
+            <img class="fadedImage" src="faded.jpg" alt="Faded Image"> <!-- Image size reduced by 20% -->
             <br>
             <button id="playPauseButton">
                 <img id="buttonIcon" src="play.png" alt="Play">
