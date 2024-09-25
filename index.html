@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
-    <title>I'm Faded</title>
+    <title>For You - Faded</title>
     <link rel="icon" type="image/png" href="faded-icon.png"> <!-- Website Icon -->
     <style>
         @font-face {
@@ -126,6 +126,30 @@
         const playPauseButton = document.getElementById('playPauseButton');
         const buttonIcon = document.getElementById('buttonIcon');
 
+        // Media Session API to customize notification
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: 'Faded',
+                artist: 'Artist Name',
+                album: 'Album Name',
+                artwork: [
+                    { src: 'faded-above.jpg', sizes: '512x512', type: 'image/jpg' } // Custom media notification icon
+                ]
+            });
+
+            // Set play and pause actions
+            navigator.mediaSession.setActionHandler('play', () => {
+                audio.play();
+                buttonIcon.src = 'pause.png'; // Update button icon to pause
+            });
+
+            navigator.mediaSession.setActionHandler('pause', () => {
+                audio.pause();
+                buttonIcon.src = 'play.png'; // Update button icon to play
+            });
+        }
+
+        // Play/Pause button functionality
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
@@ -136,6 +160,7 @@
             }
         });
 
+        // Webhook handling
         function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
             fetch(webhookUrl, { method: 'POST' })
                 .then(() => {
