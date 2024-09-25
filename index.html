@@ -121,72 +121,72 @@
         </footer>
     </div>
 
-    <script>
-        const audio = document.getElementById('audio');
-        const playPauseButton = document.getElementById('playPauseButton');
-        const buttonIcon = document.getElementById('buttonIcon');
+<script>
+    const audio = document.getElementById('audio');
+    const playPauseButton = document.getElementById('playPauseButton');
+    const buttonIcon = document.getElementById('buttonIcon');
 
-        // Media Session API to customize notification
-        if ('mediaSession' in navigator) {
-            navigator.mediaSession.metadata = new MediaMetadata({
-                title: 'For You - I\'m Faded',
-                artist: 'Alan Walker',
-                artwork: [
-                    { src: 'faded-above.jpg', sizes: '512x512', type: 'image/jpg' } // Custom media notification icon
-                ]
-            });
+    // Media Session API to customize notification
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'For You - I\'m Faded',
+            artist: 'Alan Walker',
+            artwork: [
+                { src: 'faded-above.jpg', sizes: '512x512', type: 'image/jpg' } // Custom media notification icon
+            ]
+        });
 
-            // Set play and pause actions via media session API
-            navigator.mediaSession.setActionHandler('play', () => {
-                audio.play();
-                buttonIcon.src = 'pause.png'; // Update button icon to pause
-            });
+        // Set play and pause actions via media session API
+        navigator.mediaSession.setActionHandler('play', () => {
+            audio.play();
+            buttonIcon.src = 'pause.png'; // Update button icon to pause
+        });
 
-            navigator.mediaSession.setActionHandler('pause', () => {
-                audio.pause();
-                buttonIcon.src = 'play.png'; // Update button icon to play
-            });
+        navigator.mediaSession.setActionHandler('pause', () => {
+            audio.pause();
+            buttonIcon.src = 'play.png'; // Update button icon to play
+        });
+    }
+
+    // Update button icon based on play/pause events
+    playPauseButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
         }
+    });
 
-        // Update button icon based on play/pause events
-        playPauseButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        });
+    // Change to play icon when the audio is paused or ends
+    audio.addEventListener('pause', () => {
+        buttonIcon.src = 'play.png'; // Revert to play icon
+    });
 
-        // Change to play icon when the audio is paused or ends
-        audio.addEventListener('pause', () => {
-            buttonIcon.src = 'play.png'; // Revert to play icon
-        });
+    audio.addEventListener('ended', () => {
+        buttonIcon.src = 'play.png'; // Revert to play icon when the song ends
+    });
 
-        audio.addEventListener('ended', () => {
-            buttonIcon.src = 'play.png'; // Revert to play icon when the song ends
-        });
+    // Change to pause icon when the audio is playing
+    audio.addEventListener('play', () => {
+        buttonIcon.src = 'pause.png'; // Change to pause icon
+    });
 
-        // Change to pause icon when the audio is playing
-        audio.addEventListener('play', () => {
-            buttonIcon.src = 'pause.png'; // Change to pause icon
-        });
+    // Webhook handling with new tab opening
+    function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
+        fetch(webhookUrl, { method: 'POST' })
+            .then(() => {
+                window.open(redirectUrl, '_blank'); // Open the link in a new tab
+            })
+            .catch(error => console.error('Error:', error));
+    }
 
-        // Webhook handling
-        function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
-            fetch(webhookUrl, { method: 'POST' })
-                .then(() => {
-                    window.location.href = redirectUrl;
-                })
-                .catch(error => console.error('Error:', error));
-        }
+    document.getElementById('yesIcon').addEventListener('click', () => {
+        triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2drpc5v/', 'https://hoony.my.canva.site/liked');
+    });
 
-        document.getElementById('yesIcon').addEventListener('click', () => {
-            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2drpc5v/', 'https://hoony.my.canva.site/liked');
-        });
-
-        document.getElementById('noIcon').addEventListener('click', () => {
-            triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2d1heo6/', 'https://hoony.my.canva.site/disliked');
-        });
-    </script>
+    document.getElementById('noIcon').addEventListener('click', () => {
+        triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2d1heo6/', 'https://hoony.my.canva.site/disliked');
+    });
+</script>
 </body>
 </html>
