@@ -129,7 +129,7 @@
         // Media Session API to customize notification
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new MediaMetadata({
-                title: 'For You - I'm Faded',
+                title: 'For You - I\'m Faded',
                 artist: 'Alan Walker',
                 album: 'Album Name',
                 artwork: [
@@ -137,7 +137,7 @@
                 ]
             });
 
-            // Set play and pause actions
+            // Set play and pause actions via media session API
             navigator.mediaSession.setActionHandler('play', () => {
                 audio.play();
                 buttonIcon.src = 'pause.png'; // Update button icon to pause
@@ -149,15 +149,27 @@
             });
         }
 
-        // Play/Pause button functionality
+        // Update button icon based on play/pause events
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                buttonIcon.src = 'pause.png'; // Change to pause icon
             } else {
                 audio.pause();
-                buttonIcon.src = 'play.png'; // Change to play icon
             }
+        });
+
+        // Change to play icon when the audio is paused or ends
+        audio.addEventListener('pause', () => {
+            buttonIcon.src = 'play.png'; // Revert to play icon
+        });
+
+        audio.addEventListener('ended', () => {
+            buttonIcon.src = 'play.png'; // Revert to play icon when the song ends
+        });
+
+        // Change to pause icon when the audio is playing
+        audio.addEventListener('play', () => {
+            buttonIcon.src = 'pause.png'; // Change to pause icon
         });
 
         // Webhook handling
