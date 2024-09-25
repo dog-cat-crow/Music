@@ -23,7 +23,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            position: relative; /* Set position relative for absolute children */
         }
         .container {
             width: 90%;
@@ -74,16 +73,14 @@
             display: block;
         }
         .icons {
-            position: absolute; /* Absolute positioning */
-            bottom: 10px; /* 10 pixels above the bottom */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Shift back by 50% of their width */
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
         }
         #yesIcon {
-            margin-right: 10px; /* 10 pixels left from center */
-        }
-        #noIcon {
-            margin-left: 10px; /* 10 pixels left from center */
+            margin-left: 4px;
         }
         .icons img {
             width: 128px;
