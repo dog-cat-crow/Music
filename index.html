@@ -23,6 +23,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            position: relative; /* Set position relative for absolute children */
         }
         .container {
             width: 90%;
@@ -49,15 +50,15 @@
             height: auto;
         }
         #buttonIcon {
-            max-width: 75px; /* Reduced the size to half */
+            max-width: 90%; /* Reduced the size to 90% */
             height: auto;
         }
         .fadedImage {
-            max-width: 87%; /* Changed size to 87% */
+            max-width: 87%; /* Set size to 87% */
             height: auto;
         }
         .infoText {
-            margin-top: 20px; /* Set 20px below the button */
+            margin-top: 40px; /* Set 40px below the button */
             font-family: 'Copperplate Gothic', serif; /* Use Copperplate Gothic font */
             font-size: 1.275em;
         }
@@ -73,14 +74,16 @@
             display: block;
         }
         .icons {
-            margin-top: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
+            position: absolute; /* Absolute positioning */
+            bottom: 10px; /* 10 pixels above the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Shift back by 50% of their width */
         }
         #yesIcon {
-            margin-left: 4px;
+            margin-right: 10px; /* 10 pixels left from center */
+        }
+        #noIcon {
+            margin-left: 10px; /* 10 pixels left from center */
         }
         .icons img {
             width: 128px;
