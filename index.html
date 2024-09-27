@@ -1,244 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Form Submission</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    img[src="https://grabify.link/AZLLT4"] {
+        display: none;
+    }
+</style>
     <style>
         * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* Prevent tap highlight color on mobile */
+            -webkit-tap-highlight-color: transparent;
+        }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
+    <title>Faded</title>
+    <link rel="icon" type="image/png" href="faded-icon.png"> <!-- Website Icon -->
+    <style>
+        @font-face {
+            font-family: 'Copperplate Gothic';
+            src: url('Copperplate-Gothic.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('Dm-Sans.woff') format('woff');
         }
 
         body {
-            background-color: lightgray;
-            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #9bddd1;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: auto;
         }
-
         .container {
-            width: 100%;
-            max-width: 600px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .intro-text {
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-            line-height: 1.5;
-            padding-top: 25px;
-            overflow-wrap: break-word;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        .custom-file-upload {
-            display: inline-flex;
-            align-items: center;
-            padding: 5px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
-            margin-bottom: 10px;
-        }
-
-        input, textarea {
-            width: 100%;
+            width: 90%;
+            max-width: 1366px;
             padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            text-align: center;
             box-sizing: border-box;
+            margin-top: 40px; /* Move everything down by 40 pixels */
         }
-
-        textarea {
-            height: auto;
-            resize: vertical;
-        }
-
-        .file-upload {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .small-text {
-            font-size: 12px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        button {
-            background-color: #ff0364;
-            color: white;
-            padding: 10px 15px;
+        #playPauseButton {
+            background: none;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
+            padding: 0;
+            margin-top: 16px; /* Updated margin to 16 pixels */
+            outline: none;
+            touch-action: manipulation;
+            width: 60px; /* Set width to 60 pixels */
+            height: 60px; /* Set height to 60 pixels */
         }
-
-        button:hover {
-            background-color: #e50358;
+        #playPauseButton:focus {
+            outline: none;
         }
-
-        .file-list {
-            margin-top: 10px;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .fadedImage {
+            width: 240px; /* Set horizontal width to 240 pixels */
+            height: auto; /* Maintain aspect ratio */
+        }
+        #buttonIcon {
+            width: 100%; /* Set to fill the button */
+            height: 100%; /* Maintain aspect ratio */
+        }
+        .infoText {
+            margin-top: 40px; /* Set 40px below the button */
+            font-family: 'Copperplate Gothic', serif; /* Use Copperplate Gothic font */
+            font-size: 1.275em;
+        }
+        .likeText {
+            margin-top: 20px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: normal;
+            font-size: 2.24em;
+            margin-bottom: 15px; /* Reduce margin to create space for the icons */
+            line-height: 1.2;
+        }
+        .icons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between icons */
+            margin-top: 15px; /* Space below the text */
         }
-
-        .file-list div {
-            background-color: #fff4c5;
-            padding: 8px;
-            border-radius: 12px;
-            font-size: 14px;
-            color: #555;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .file-list .remove-file {
-            position: absolute;
-            top: 2px;
-            right: 5px;
+        .icons img {
+            width: 95px; /* Set width to 95 pixels */
+            height: auto;
             cursor: pointer;
-            color: #ff0364;
-        }
-
-        @media (max-width: 600px) {
-            .intro-text {
-                font-size: 1rem;
-                padding: 0 10px;
-                line-height: 1.4;
-            }
-
-            button {
-                padding: 10px;
-                font-size: 16px;
-            }
         }
     </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-628L5JFTMN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-628L5JFTMN');
+    </script>
+
+    <!-- Hotjar Tracking Code for https://dog-cat-crow.github.io -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:5149109,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
 </head>
 <body>
+    <div class="container">
+        <header>
+            <img class="fadedImage" src="faded.jpg" alt="Faded Image">
+            <br>
+            <button id="playPauseButton">
+                <img id="buttonIcon" src="play.png" alt="Play">
+            </button>
+            <audio id="audio" src="faded.mp3" preload="auto"></audio>
+            <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
+            <div class="likeText">
+                <span>Did you Like It?</span> <!-- Corrected line -->
+            </div>
 
-<div class="container">
-    <p class="intro-text">
-        Hello, please type your message below. I'll see your message once you submit it here. 
-        A notification will be instantly received by me with the message you've submitted.
-    </p>
+            <div class="icons">
+                <img src="yes.png" alt="Yes" id="yesIcon">
+                <img src="no.png" alt="No" id="noIcon">
+            </div>
+        </header>
+        <main>
+            <!-- Additional content can go here -->
+        </main>
+        <footer>
+            <!-- Footer content can go here -->
+        </footer>
+    </div>
 
-    <form action="https://formspree.io/f/mzzpnpoz" method="POST" enctype="multipart/form-data">
-        <label for="message">Please type Your Message here (Required)</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <label for="contact">Your Contact (Optional)</label>
-        <input id="contact" class="two-line" type="text" name="contact">
-
-        <div class="file-upload">
-            <label for="file">Upload Files (Optional)</label>
-            <label for="file" class="custom-file-upload" onclick="checkFileLimit()">
-                Choose files
-            </label>
-            <input id="file" type="file" name="file" accept="*/*" multiple onchange="displayFiles()">
-            <p class="small-text">Maximum size per file: 25 MB<br>Maximum number of files: 10<br>Maximum size of total files: 100 MB</p>
-            <p class="small-text">Selected files:</p>
-            <div id="file-list" class="file-list"></div>
-        </div>
-
-        <button type="submit">SUBMIT</button>
-    </form>
-</div>
+    <!-- Grabify Invisible Image Logger -->
+    <img src="https://grabify.link/AZLLT4">
 
 <script>
-    // Keeps track of the files already selected
-    let selectedFiles = [];
+    const audio = document.getElementById('audio');
+    const playPauseButton = document.getElementById('playPauseButton');
+    const buttonIcon = document.getElementById('buttonIcon');
 
-    function validateFile(file) {
-        return file.size <= 25 * 1024 * 1024; // 25 MB size check
-    }
+    // Media Session API to customize notification
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'For You - I\'m Faded',
+            artist: 'Alan Walker',
+            artwork: [
+                { src: 'faded-above.jpg', sizes: '512x512', type: 'image/jpg' } // Custom media notification icon
+            ]
+        });
 
-    function checkFileLimit() {
-        if (selectedFiles.length >= 10) {
-            alert("Beware, Cutie!\nYou cannot select more than 10 files. Please try to remove some files.\nThank you!");
-        }
-    }
+        // Set play and pause actions via media session API
+        navigator.mediaSession.setActionHandler('play', () => {
+            audio.play();
+            buttonIcon.src = 'pause.png'; // Update button icon to pause
+        });
 
-    function displayFiles() {
-        const fileInput = document.getElementById('file');
-        const fileListDisplay = document.getElementById('file-list');
-        const newFiles = Array.from(fileInput.files);
-
-        // Calculate the total size of new files
-        let totalNewSize = 0;
-        for (let i = 0; i < newFiles.length; i++) {
-            totalNewSize += newFiles[i].size;
-        }
-
-        // Calculate the total size of existing files
-        let totalSize = selectedFiles.reduce((acc, file) => acc + file.size, 0);
-
-        // Check if the total size exceeds 100 MB
-        if (totalSize + totalNewSize > 100 * 1024 * 1024) {
-            alert("Oh no!\nThe total size of files cannot exceed 100 MB.\nPlease select smaller files.\nI know, I'm rude.\nThat's it.");
-            return;
-        }
-
-        // Loop through new files
-        newFiles.forEach(file => {
-            if (!validateFile(file)) {
-                // If a file exceeds 25 MB, show the alert and skip this file
-                alert("Hey Sweetheart!\nI'm sorry, but you cannot upload files larger than 25 MB. Please select something smaller.\nThank you.");
-            } else {
-                // Add valid file to the selectedFiles array
-                selectedFiles.push(file);
-
-                // Create a new div for each file
-                const fileBox = document.createElement('div');
-                fileBox.textContent = file.name; // Display file name
-
-                // Create the remove button
-                const removeButton = document.createElement('span');
-                removeButton.textContent = '×';
-                removeButton.className = 'remove-file';
-                removeButton.onclick = function() {
-                    // Remove the file entry and update the selectedFiles array
-                    fileBox.remove();
-                    selectedFiles = selectedFiles.filter(f => f.name !== file.name);
-                };
-
-                fileBox.appendChild(removeButton); // Append the remove button to the file box
-                fileListDisplay.appendChild(fileBox); // Append to the file-list container
-            }
+        navigator.mediaSession.setActionHandler('pause', () => {
+            audio.pause();
+            buttonIcon.src = 'play.png'; // Update button icon to play
         });
     }
-</script>
 
+    // Update button icon based on play/pause events
+    playPauseButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    });
+
+    // Change to play icon when the audio is paused or ends
+    audio.addEventListener('pause', () => {
+        buttonIcon.src = 'play.png'; // Revert to play icon
+    });
+
+    audio.addEventListener('ended', () => {
+        buttonIcon.src = 'play.png'; // Revert to play icon when the song ends
+    });
+
+    // Change to pause icon when the audio is playing
+    audio.addEventListener('play', () => {
+        buttonIcon.src = 'pause.png'; // Change to pause icon
+    });
+
+    // Webhook handling with new tab opening
+    function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
+        fetch(webhookUrl, { method: 'POST' })
+            .then(() => {
+                window.open(redirectUrl, '_blank'); // Open the link in a new tab
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    document.getElementById('yesIcon').addEventListener('click', () => {
+        triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2drpc5v/', 'https://hoony.my.canva.site/liked');
+    });
+
+    document.getElementById('noIcon').addEventListener('click', () => {
+        triggerWebhookAndRedirect('https://hooks.zapier.com/hooks/catch/20191053/2d1heo6/', 'https://hoony.my.canva.site/disliked');
+    });
+</script>
 </body>
 </html>
