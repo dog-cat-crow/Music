@@ -189,13 +189,6 @@
         const fileListDisplay = document.getElementById('file-list');
         const newFiles = Array.from(fileInput.files);
 
-        // Check if 10 files are already selected
-        if (selectedFiles.length >= 10) {
-            alert("Beware, Cutie!\nYou cannot select more than 10 files. Please try to remove some files.\nThank you!");
-            fileInput.value = ''; // Clear the file input
-            return; // Stop further execution
-        }
-
         // Check if more than 10 files are selected at once
         if (newFiles.length > 10) {
             alert("Be aware, Cutie!\nYou cannot upload more than 10 files at once. Please try selecting again.\nThank you!");
@@ -245,21 +238,12 @@
                     // Remove the file entry and update the selectedFiles array
                     fileBox.remove();
                     selectedFiles = selectedFiles.filter(f => f.name !== file.name);
-                    // Enable the file input if there are less than 10 files
-                    if (selectedFiles.length < 10) {
-                        fileInput.disabled = false; // Re-enable file input
-                    }
                 };
 
                 fileBox.appendChild(removeButton); // Append the remove button to the file box
                 fileListDisplay.appendChild(fileBox); // Append to the file-list container
             }
         });
-
-        // Disable file input if 10 files are selected
-        if (selectedFiles.length >= 10) {
-            fileInput.disabled = true; // Disable the file input
-        }
     }
 </script>
 
