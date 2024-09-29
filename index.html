@@ -7,9 +7,9 @@
         }
 </style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Faded</title>
-    <link rel="icon" type="image/png" href="faded-icon.png"> <!-- Website Icon -->
+    <link rel="icon" type="image/png" href="faded-icon.png">
     <style>
         @font-face {
             font-family: 'Copperplate Gothic';
@@ -36,18 +36,18 @@
             padding: 10px;
             text-align: center;
             box-sizing: border-box;
-            margin-top: 40px; /* Move everything down by 40 pixels */
+            margin-top: 40px;
         }
         #playPauseButton {
             background: none;
             border: none;
             cursor: pointer;
             padding: 0;
-            margin-top: 16px; /* Updated margin to 16 pixels */
+            margin-top: 16px;
             outline: none;
             touch-action: manipulation;
-            width: 60px; /* Set width to 60 pixels */
-            height: 60px; /* Set height to 60 pixels */
+            width: 60px;
+            height: 60px;
         }
         #playPauseButton:focus {
             outline: none;
@@ -57,16 +57,16 @@
             height: auto;
         }
         .fadedImage {
-            width: 240px; /* Set horizontal width to 240 pixels */
-            height: auto; /* Maintain aspect ratio */
+            width: 240px;
+            height: auto;
         }
         #buttonIcon {
-            width: 100%; /* Set to fill the button */
-            height: 100%; /* Maintain aspect ratio */
+            width: 100%;
+            height: 100%;
         }
         .infoText {
-            margin-top: 40px; /* Set 40px below the button */
-            font-family: 'Copperplate Gothic', serif; /* Use Copperplate Gothic font */
+            margin-top: 40px;
+            font-family: 'Copperplate Gothic', serif;
             font-size: 1.275em;
         }
         .likeText {
@@ -74,18 +74,18 @@
             font-family: 'DM Sans', sans-serif;
             font-weight: normal;
             font-size: 2.24em;
-            margin-bottom: 15px; /* Reduce margin to create space for the icons */
+            margin-bottom: 15px;
             line-height: 1.2;
         }
         .icons {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Space between icons */
-            margin-top: 15px; /* Space below the text */
+            gap: 20px;
+            margin-top: 15px;
         }
         .icons img {
-            width: 95px; /* Set width to 95 pixels */
+            width: 95px;
             height: auto;
             cursor: pointer;
         }
@@ -103,7 +103,7 @@
             <audio id="audio" src="faded.mp3" preload="auto"></audio>
             <div class="infoText">Use Earphones/Headphones<br>for a better feeling</div>
             <div class="likeText">
-                <span>Did you Like It?</span> <!-- Corrected line -->
+                <span>Did you Like It?</span>
             </div>
 
             <div class="icons">
@@ -111,12 +111,6 @@
                 <img src="no.png" alt="No" id="noIcon">
             </div>
         </header>
-        <main>
-            <!-- Additional content can go here -->
-        </main>
-        <footer>
-            <!-- Footer content can go here -->
-        </footer>
     </div>
 
 <script>
@@ -124,7 +118,6 @@
     const playPauseButton = document.getElementById('playPauseButton');
     const buttonIcon = document.getElementById('buttonIcon');
 
-    // Media Session API to customize notification
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
             title: 'For You - I\'m Faded',
@@ -134,19 +127,17 @@
             ]
         });
 
-        // Set play and pause actions via media session API
         navigator.mediaSession.setActionHandler('play', () => {
             audio.play();
-            buttonIcon.src = 'pause.png'; // Update button icon to pause
+            buttonIcon.src = 'pause.png';
         });
 
         navigator.mediaSession.setActionHandler('pause', () => {
             audio.pause();
-            buttonIcon.src = 'play.png'; // Update button icon to play
+            buttonIcon.src = 'play.png';
         });
     }
 
-    // Update button icon based on play/pause events
     playPauseButton.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
@@ -155,25 +146,22 @@
         }
     });
 
-    // Change to play icon when the audio is paused or ends
     audio.addEventListener('pause', () => {
-        buttonIcon.src = 'play.png'; // Revert to play icon
+        buttonIcon.src = 'play.png';
     });
 
     audio.addEventListener('ended', () => {
-        buttonIcon.src = 'play.png'; // Revert to play icon when the song ends
+        buttonIcon.src = 'play.png';
     });
 
-    // Change to pause icon when the audio is playing
     audio.addEventListener('play', () => {
-        buttonIcon.src = 'pause.png'; // Change to pause icon
+        buttonIcon.src = 'pause.png';
     });
 
-    // Webhook handling with new tab opening
     function triggerWebhookAndRedirect(webhookUrl, redirectUrl) {
         fetch(webhookUrl, { method: 'POST' })
             .then(() => {
-                window.open(redirectUrl, '_blank'); // Open the link in a new tab
+                window.open(redirectUrl, '_blank');
             })
             .catch(error => console.error('Error:', error));
     }
